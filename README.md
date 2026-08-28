@@ -1,11 +1,11 @@
-<h1 align="center">白描写作.skill</h1>
+<h1 align="center">sunsun-writing.skill</h1>
 
 <p align="center">
   <strong>把"我收获了很多"换成"我交了一把，钥匙其实配过两把"</strong>
 </p>
 
 <p align="center">
-  <img alt="Version 1.1.0" src="https://img.shields.io/badge/version-1.1.0-161618?style=flat-square">
+  <img alt="Version 1.2.0" src="https://img.shields.io/badge/version-1.2.0-161618?style=flat-square">
   <a href="./LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-222222?style=flat-square"></a>
   <img alt="Node 18+, zero deps" src="https://img.shields.io/badge/node-%E2%89%A518%20%C2%B7%200%20dependencies-A33B2B?style=flat-square">
 </p>
@@ -28,9 +28,11 @@
 
 上面这四行不是文案，是给模型听的调子。
 
-`baimiao-cold-writing` 是一个 Agent Skill。它管三件事：只写看得见的东西，只用量得出来的说法，把该读者补的部分留给读者。
+`sunsun-writing` 是一个 Agent Skill。它做的事只有一件：把孙宇晨那篇刷屏长文里能拆的**写法**拆出来，装进模型。它管三件事：只写看得见的东西，只用量得出来的说法，把该读者补的部分留给读者。
 
 它不生产金句。它删掉你稿子里那些"那一刻我明白了"。
+
+它也不复制原文。仓库里不含那句长文的一个字，所有示例句子都是自造的；被学的只有句长、段长、数字密度、留白位置这四类可测量的东西。
 
 ## 先看两版
 
@@ -129,14 +131,20 @@ node scripts/style_check.mjs draft.md
 一条消息：
 
 ```text
-帮我装一下这个 skill：https://github.com/touteitei888-rgb/baimiao-cold-writing
+帮我装一下这个 skill：https://github.com/touteitei888-rgb/sunsun-writing
 ```
 
-或者手动拷目录：
+或者直接装安装包（千问办公里点开会提示保存技能）：
 
 ```text
-~/.qwenworkcn/skills/baimiao-cold-writing/     # 千问办公
-~/.agents/skills/baimiao-cold-writing/         # 其他支持 Agent Skill 的客户端
+https://github.com/touteitei888-rgb/sunsun-writing/releases/download/v1.2.0/sunsun-writing.skill
+```
+
+手动拷目录也行：
+
+```text
+~/.qwenworkcn/skills/sunsun-writing/     # 千问办公
+~/.agents/skills/sunsun-writing/         # 其他支持 Agent Skill 的客户端
 ```
 
 装完不会弹提示。没有反馈就是装好了。
@@ -146,13 +154,14 @@ node scripts/style_check.mjs draft.md
 点名调用：
 
 ```text
-用 $baimiao-cold-writing 拿我这段经历写一篇不煽情、但留得住人的稿子。
+用 $sunsun-writing 拿我这段经历写一篇不煽情、但留得住人的稿子。
 ```
 
 讲人话也行：
 
 ```text
 这段改成白描，别替我难受，让动作和数字自己说。
+照那篇长文的调子，把这次分手写成第一人称短篇，狠一点，别解释。
 这条小红书压到 150 字，一句一段，不要 emoji。
 我这篇复盘感悟太多了，帮我删掉一半句子，剩下的换成事实。
 ```
@@ -177,12 +186,12 @@ node scripts/style_check.mjs draft.md
 ## 仓库里有什么
 
 ```text
-baimiao-cold-writing/
+sunsun-writing/
 ├── SKILL.md                 # 主文档，模型常驻读这份
 ├── README.md
 ├── LICENSE
 ├── VERSION
-├── .skill-metadata.yaml     # 5 条预设 query
+├── .skill-metadata.yaml     # 6 条预设 query
 ├── references/
 │   ├── techniques.md        # 十四招，逐条做法 + 自造示例
 │   ├── scenarios.md         # 五组前后对照 + 五种写坏了的样子
@@ -194,7 +203,7 @@ baimiao-cold-writing/
 
 ## 数据从哪来
 
-基线取自一份 6.5K 字、272 段的中文第一人称克制长文，逐段统计后写回脚本常量：
+基线取自孙宇晨那篇《我的女友景甜》正文——6.5K 字、272 段的中文第一人称克制长文，逐段统计后写回脚本常量：
 
 | 指标 | 基线 |
 | :--- | :--- |
@@ -207,7 +216,7 @@ baimiao-cold-writing/
 | 问号 | 0.77 个/千字 |
 | 感叹号 / 省略号 | 0 / 0 |
 
-语料本身不进仓库，仓库里也没有任何一篇原文的复现。统计口径、复算命令和踩过的坑写在 [references/baseline.md](./references/baseline.md)，任何人都能用自己的语料重算一遍。
+只有统计量进了仓库，原文一个字都没有。统计口径、复算命令和踩过的坑写在 [references/baseline.md](./references/baseline.md)，任何人都能换一份语料重算一遍——这套阈值不是权威，是一把可以被推翻的尺子。
 
 ## 致谢
 
@@ -217,11 +226,13 @@ baimiao-cold-writing/
 
 ## 关于立场
 
-这是一份写作技法整理，研究对象是句式与节奏，不是任何一篇文章的八卦，也不是任何真实人物。文中示例句子全部为本仓库自造。
+这是一份文法研究，研究对象是句式和节奏，不是八卦。
 
-技法分类这个方向，社区里早有同类整理工作，本仓库在思路上受过公开讨论的影响；正文、脚本、数据口径、示例全部独立成稿，与任何既有仓库不存在文本对应关系。
+那篇文章里的事实真假，本项目不表态，也没能力表态。法院在判的事，一个 README 不掺和。
 
-判断真假不是这个项目的事。它只关心：这句话该不该写出来。
+点名作者是为了交代方法来源：阈值从他的段落长度和数字密度里量出来，藏起来反而不诚实。但学写法不等于替他说话——本技能明确禁止用任何真实在世人物的第一人称写作，禁止补写他们的私事。示例里的人物全部虚构。
+
+它只关心一件事：这句话该不该写出来。
 
 ## 反馈
 
@@ -240,5 +251,5 @@ baimiao-cold-writing/
 MIT 协议，随便改，改完记得留一行版权头。
 
 <p align="center">
-  <sub>白描写作.skill · 字少 · 空格多 · 一个依赖都不装</sub>
+  <sub>sunsun-writing.skill · 字少 · 空格多 · 一个依赖都不装</sub>
 </p>

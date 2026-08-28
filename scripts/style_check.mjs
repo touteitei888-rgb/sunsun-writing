@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * 文风体检 / style linter
- * 把一篇稿子与克制白描语料的实测基线做对比：硬红线命中 + 节奏偏差 + 首尾闭环。
+ * 把一篇稿子与孙式克制白描的实测基线做对比：硬红线命中 + 节奏偏差 + 首尾闭环。
  *
  *   node scripts/style_check.mjs draft.md
  *   node scripts/style_check.mjs draft.md --json
@@ -14,7 +14,8 @@
 import fs from "node:fs";
 
 /* ---------- 语料基线 ----------
- * 用本脚本自身的统计口径，在一份 6.5K 字的第一人称白描语料（272 段）上实测得出。
+ * 来源：孙宇晨《我的女友景甜》正文（6.5K 字 / 272 段），用本脚本自身的统计口径逐段实测得出。
+ * 仓库里只保留下面的统计量，不含原文任何一句。
  * 改词表或改数字正则后必须重跑语料校准：node scripts/style_check.mjs <语料.txt>
  */
 const BASELINE = {

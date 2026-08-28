@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.2.1" src="https://img.shields.io/badge/version-1.2.1-161618?style=flat-square">
+  <img alt="Version 1.3.0" src="https://img.shields.io/badge/version-1.3.0-161618?style=flat-square">
   <a href="./LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-222222?style=flat-square"></a>
   <img alt="Node 18+, zero deps" src="https://img.shields.io/badge/node-%E2%89%A518%20%C2%B7%200%20dependencies-A33B2B?style=flat-square">
 </p>
@@ -20,21 +20,19 @@
   <a href="#引用与立场">引用与立场</a>
 </p>
 
-> 一颗卵子，三点五微克。
+> 一颗卵子的重量，三点五微克。
 >
-> 五千万美元现金，两点五吨。
->
-> 一段沉默，十一秒。
+> 五千万美元现金的重量，两点五吨。
 
-这三行不是这里写的。它们来自《我的女友景甜》。
+这两行不是这里写的。它们来自《我的女友甜》。
 
-整个仓库里，原文只出现这一次，就是上面这三行。
+整个仓库里，原文只出现这一次，就是上面这两行。
 
 剩下的全是量得出来的东西：段长中位数、数字密度、六类禁词、一把能跑的尺子。
 
-`sunsun-writing` 是一个 Agent Skill。它把孙宇晨那篇刷屏长文里能拆的写法拆成十四招，再往里装一套写给小说用的冷硬引擎。
+`sunsun-writing` 是一个 Agent Skill。它把孙某那篇刷屏长文里能拆的写法拆成十四招，再往里装一套写给小说用的冷硬引擎。
 
-装上以后，模型不会变成孙宇晨。
+装上以后，模型不会变成孙某。
 
 它不会有五千万美元，也不会突然需要飞一趟大西洋。
 
@@ -151,7 +149,7 @@ node scripts/style_check.mjs draft.md
 【首尾闭环】 ✓ 回扣开头
 ```
 
-同一件事用典型 AI 腔写一遍丢进去：51 分，14 处红线。其中一条长这样：
+同一件事用典型 AI 腔写一遍丢进去：51 分，13 处红线。其中一条长这样：
 
 ```text
 [元叙事] 第2段｜…然而回望来路，我终于明白…
@@ -200,7 +198,7 @@ node scripts/style_check.mjs draft.md
 或者直接装安装包（千问办公里点开会提示保存技能）：
 
 ```text
-https://github.com/touteitei888-rgb/sunsun-writing/releases/download/v1.2.1/sunsun-writing.skill
+https://github.com/touteitei888-rgb/sunsun-writing/releases/download/v1.3.0/sunsun-writing.skill
 ```
 
 手动拷目录也行：
@@ -225,7 +223,7 @@ https://github.com/touteitei888-rgb/sunsun-writing/releases/download/v1.2.1/suns
 讲人话也行：
 
 ```text
-按《我的女友景甜》那种白描和留白的感觉改一下这段。
+按《我的女友甜》那种白描和留白的感觉改一下这段。
 别替我难受，让动作和数字自己说。
 这条小红书压到 150 字，一句一段，不要 emoji。
 我这篇复盘感悟太多了，帮我删掉一半句子，剩下的换成事实。
@@ -274,11 +272,11 @@ sunsun-writing/
 
 ## 引用与立场
 
-本仓库是独立的写作技法研究，与孙宇晨、景甜及文中出现的任何人物没有关联，不代表任何一方的立场。
+本仓库是独立的写作技法研究，与孙某、甜及文中出现的任何人物没有关联，不代表任何一方的立场。
 
-开头那三行是从原作开头搬来的数字梗，一共 27 个字，是全仓库唯一的引用，用途是交代方法来源。
+开头那两行是从原作开头搬来的数字梗，一共 26 个字，是全仓库唯一的引用，用途是交代方法来源。
 
-除此之外零重合：拿仓库里每份文件做中文 8 字滑窗比对，5 处命中全部落在三、五两句的接缝上（原文里"三点五微克"和"五千万美元现金"本来就前后挨着），其余十份文件命中 0 处。比对口径写在 [references/baseline.md](./references/baseline.md)，任何人都能重跑一遍。
+除此之外零重合：拿仓库里每份文件做中文 8 字滑窗比对，5 处命中全部落在两行的接缝上（原文里"三点五微克"和"五千万美元现金"本来就前后挨着），其余十份文件命中 0 处。比对口径写在 [references/baseline.md](./references/baseline.md)，任何人都能重跑一遍。
 
 法院在判的事，一个 README 不掺和。判断真假不在这个项目的能力范围里。
 

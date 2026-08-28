@@ -1,0 +1,140 @@
+examples:
+  - id: cold-executor-fiction
+    title:
+      zh: 写冷硬执行者短篇
+      en: Write a cold-executor fiction piece
+    description:
+      zh: 第一人称、顶级资源的执行者、被动服从，用数字和流程写感情
+      en: First-person high-resource executor, feelings told through numbers and process
+    prompt:
+      zh: |-
+        用冷硬执行者引擎写一篇第一人称短篇：
+
+        主题：{{核心主题}}
+        人物：手里有顶级资源的执行者，用成本和效率衡量一切，在关系里被动服从
+        要求：只用可测量的数字；冲突之后只写她先做什么；一个职业动作当贯穿件；跳掉最贵的过去；关键节点放一个绝对理性的他者（模型、条款或例行提问）
+
+        先列给我这篇能用的数字和物件清单，再动笔。写完跑 style_check.mjs，红线清零。
+      en: |-
+        Write a first-person fiction piece with the cold-executor engine:
+
+        Theme: {{core theme}}
+        Narrator: a high-resource executor who measures everything in cost and time, passively obedient in the relationship
+        Rules: only measurable numbers; after a conflict write only what she does first; one professional action as the running motif; cut away the most expensive past; place one perfectly rational other at the turning point
+
+        List the numbers and objects first, then draft. Run style_check.mjs until zero red flags.
+
+  - id: narrative-longform
+    title:
+      zh: 写第一人称叙事长文
+      en: Write a first-person narrative essay
+    description:
+      zh: 手上有真实经历素材，要写成克制白描的长文
+      en: Turn real-life material into a restrained, plain-description long-form piece
+    prompt:
+      zh: |-
+        帮我把这段经历写成第一人称叙事长文，用白描、克制、不煽情的写法：
+
+        素材（时间、地点、金额、人数、说过的话、反复出现的物件）：{{你的素材}}
+        篇幅：{{1500-3000字}}
+        结尾方式：回扣开头，或者一句短促收束
+
+        先列出你还需要我补哪些细节，缺的不要编。写完用 scripts/style_check.mjs 体检，红线清零再给我纯文本。
+      en: |-
+        Write this experience as a first-person narrative essay in a restrained plain-description style:
+
+        Material (dates, places, amounts, headcounts, things said, recurring objects): {{your material}}
+        Length: {{1500-3000 words}}
+        Ending: echo the opening, or land on one short sentence
+
+        First tell me which details you still need - never invent them. Then run scripts/style_check.mjs and clear every red flag before giving me plain text.
+
+  - id: xiaohongshu-copy
+    title:
+      zh: 改写小红书文案
+      en: Rewrite Xiaohongshu copy
+    description:
+      zh: 把带 emoji 和口号腔的短文案改成有人味的白描版
+      en: Turn emoji-heavy slogan copy into human-sounding plain prose
+    prompt:
+      zh: |-
+        把这段小红书文案改成克制白描版，150 字以内，一句一段，不要 emoji、不要感叹号、不要"家人们/谁懂啊"，也不要号召互动：
+
+        原文：{{原案}}
+        可用的真实细节：{{数字/物件/时间}}
+
+        改完跑一遍 style_check.mjs，把分数和剩余问题告我。
+      en: |-
+        Rewrite this Xiaohongshu caption in restrained plain prose, under 150 characters, one sentence per line, no emoji, no exclamation marks, no engagement bait:
+
+        Original: {{draft}}
+        Real details I can use: {{numbers/objects/times}}
+
+        Run style_check.mjs afterwards and report the score plus remaining issues.
+
+  - id: project-writeup
+    title:
+      zh: 写项目/设计自述
+      en: Write a project or design note
+    description:
+      zh: 给作品、工具、提案写说明，用决策和数字代替"极致匠心"
+      en: Describe a project with decisions and numbers instead of buzzwords
+    prompt:
+      zh: |-
+        帮我给这个项目写一段自述，用于 {{作品集/提案/发布页}}：
+
+        项目：{{项目名}}
+        真实过程数据：{{版本数、耗时、体积、成本、踩过的坑}}
+        禁词：极致、匠心、赋能、沉浸式、打造
+
+        把形容词换成具体决策原因，最后落在我做过的一个动作上。
+      en: |-
+        Write a project note for {{portfolio / proposal / launch page}}:
+
+        Project: {{name}}
+        Real process data: {{versions, time spent, file size, cost, pitfalls}}
+        Banned words: cutting-edge, crafted, empowering, immersive
+
+        Replace every adjective with the concrete decision behind it, and end on something I actually did.
+
+  - id: style-audit
+    title:
+      zh: 给已有稿子做文风体检
+      en: Audit an existing draft
+    description:
+      zh: 只诊断不改写，输出红线定位和节奏偏差
+      en: Diagnose without rewriting - red flags and rhythm gaps
+    prompt:
+      zh: |-
+        用 scripts/style_check.mjs 体检这份稿子，先不要改写：
+
+        文件：{{稿子路径.md 或 .txt}}
+
+        给我：总分、硬红线逐条定位（第几段、命中什么、该换成什么）、与语料基线的节奏偏差、结尾有没有接住开头。
+      en: |-
+        Run scripts/style_check.mjs on this draft and do not rewrite yet:
+
+        File: {{path to .md or .txt}}
+
+        Give me: overall score, every red flag with location and suggested fix, rhythm gaps versus the corpus baseline, and whether the ending lands.
+
+  - id: deai-rewrite
+    title:
+      zh: 把 AI 味段落改写成真人手写
+      en: De-AI a paragraph
+    description:
+      zh: 段落级改写，保留事实、去掉套话
+      en: Paragraph-level rewrite that keeps facts and removes boilerplate
+    prompt:
+      zh: |-
+        这段文字 AI 味太重，按白描改写，事实一个都不能改、不能加：
+
+        原文：{{段落}}
+
+        规则：删掉情绪词和总结句，形容词换成数字或动作，零感叹号零省略号，输出纯文本。如果原文里的数字明显是编的，标出来问我。
+      en: |-
+        This paragraph reads like AI wrote it. Rewrite it in plain-description style without changing or adding facts:
+
+        Original: {{paragraph}}
+
+        Rules: cut emotion words and summary lines, replace adjectives with numbers or actions, zero exclamation marks, output plain text. Flag any number that looks invented.
